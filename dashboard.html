@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MédiCare+ - Dashboard Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .sidebar-item {
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-item.active {
+            background: #dbeafe;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-banner {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
+        <div class="flex items-center justify-between px-6 py-3">
+            <div class="flex items-center space-x-4">
+                <button id="menuToggle" class="lg:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-heartbeat text-2xl"></i>
+                    <span class="text-xl font-bold">MédiCare+</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
+                </div>
+                
+                
+                
+                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                
+                <div class="flex items-center space-x-3">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
+                         alt="Avatar" class="w-10 h-10 rounded-full">
+                    <div class="hidden md:block">
+                        <div class="font-semibold">Administrateur</div>
+                        <div class="text-xs opacity-80">Secrétaire</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
+            <nav class="p-4 space-y-2">
+                <a href="pages/acceuil.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="font-medium">Accueil</span>
+                </a>
+                
+                <a href="pages/med.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-user-md text-lg"></i>
+                    <span>Médecins</span>
+                </a>
+                
+                <a href="pages/rendez-vous.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-calendar-check text-lg"></i>
+                    <span>Rendez-vous</span>
+                </a>
+                
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-clock text-lg"></i>
+                    <span>Disponibilités</span>
+                </a>
+                
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-heart text-lg"></i>
+                    <span>Spécialités</span>
+                </a>
+                
+            </nav>
+            
+          
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 p-6">
+            <!-- Breadcrumb -->
+            <div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-blue-600 font-medium">Dashboard</span>
+            </div>
+
+            <!-- Hero Banner -->
+            <div class="hero-banner rounded-2xl p-8 mb-8 shadow-xl relative">
+                <div class="relative z-10">
+                    <div class="text-white opacity-90 text-sm mb-2">👋 Bienvenue,</div>
+                    <h1 class="text-white text-4xl font-bold mb-2">Espace Administration</h1>
+                    <p class="text-white opacity-90 text-lg mb-6">Gérez votre plateforme MédiCare+ efficacement</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl">
+                        <div class="bg-white bg-opacity-20 backdrop-blur rounded-xl p-4 flex items-center space-x-3">
+                            <div class="bg-white bg-opacity-30 rounded-lg p-3">
+                                <i class="fas fa-user-md text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-white" id="totalMedecins">8</div>
+                                <div class="text-white text-sm">Médecins</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-20 backdrop-blur rounded-xl p-4 flex items-center space-x-3">
+                            <div class="bg-white bg-opacity-30 rounded-lg p-3">
+                                <i class="fas fa-calendar-check text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-white" id="totalRendezVous">0</div>
+                                <div class="text-white text-sm">Rendez-vous</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-20 backdrop-blur rounded-xl p-4 flex items-center space-x-3">
+                            <div class="bg-white bg-opacity-30 rounded-lg p-3">
+                                <i class="fas fa-heart text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-white" id="totalSpecialites">5</div>
+                                <div class="text-white text-sm">Spécialités</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-blue-100 rounded-full p-3">
+                            <i class="fas fa-user-md text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statMedecins">8</div>
+                    <div class="text-gray-500 text-sm mb-3">Médecins Actifs</div>
+                    <a href="#" class="text-blue-600 text-sm font-medium flex items-center">
+                        Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-green-100 rounded-full p-3">
+                            <i class="fas fa-calendar-check text-green-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statRendezVous">0</div>
+                    <div class="text-gray-500 text-sm mb-3">Rendez-vous Confirmés</div>
+                    <a href="#" class="text-green-600 text-sm font-medium flex items-center">
+                        Voir tout <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-orange-100 rounded-full p-3">
+                            <i class="fas fa-heart text-orange-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statSpecialites">5</div>
+                    <div class="text-gray-500 text-sm mb-3">Spécialités</div>
+                    <a href="#" class="text-orange-600 text-sm font-medium flex items-center">
+                        Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-purple-100 rounded-full p-3">
+                            <i class="fas fa-clock text-purple-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statDisponibilites">12</div>
+                    <div class="text-gray-500 text-sm mb-3">Créneaux Disponibles</div>
+                    <a href="#" class="text-purple-600 text-sm font-medium flex items-center">
+                        Configurer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Actions rapides -->
+            <div class="bg-white rounded-xl p-6 shadow-md mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Actions Rapides</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button class="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition">
+                        <i class="fas fa-plus-circle text-blue-600 text-3xl mb-2"></i>
+                        <span class="text-sm text-gray-700 text-center">Ajouter Médecin</span>
+                    </button>
+                    
+                    <button class="flex flex-col items-center p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition">
+                        <i class="fas fa-plus-circle text-orange-600 text-3xl mb-2"></i>
+                        <span class="text-sm text-gray-700 text-center">Ajouter Spécialité</span>
+                    </button>
+                    
+                    <button class="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition">
+                        <i class="fas fa-calendar-plus text-green-600 text-3xl mb-2"></i>
+                        <span class="text-sm text-gray-700 text-center">Gérer Disponibilités</span>
+                    </button>
+                    
+                    <button onclick="exportData()" class="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition">
+                        <i class="fas fa-download text-purple-600 text-3xl mb-2"></i>
+                        <span class="text-sm text-gray-700 text-center">Export Données</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Derniers rendez-vous -->
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">Derniers Rendez-vous</h2>
+                    <a href="#" class="text-blue-600 text-sm font-medium">Voir tout →</a>
+                </div>
+                <div id="recentAppointments" class="space-y-3">
+                    <div class="text-center text-gray-500 py-8">
+                        <i class="fas fa-calendar-times text-4xl mb-2 text-gray-300"></i>
+                        <p>Aucun rendez-vous pour le moment</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle menu mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+
+        // Charger les statistiques depuis localStorage
+        function loadStats() {
+            // Médecins
+            const medecins = JSON.parse(localStorage.getItem('medecins') || '[]');
+            document.getElementById('totalMedecins').textContent = medecins.length || 8;
+            document.getElementById('statMedecins').textContent = medecins.length || 8;
+
+            // Spécialités
+            const specialites = JSON.parse(localStorage.getItem('specialites') || '[]');
+            document.getElementById('totalSpecialites').textContent = specialites.length || 5;
+            document.getElementById('statSpecialites').textContent = specialites.length || 5;
+
+            // Rendez-vous
+            const rendezVous = JSON.parse(localStorage.getItem('rendezVous') || '[]');
+            const rdvConfirmes = rendezVous.filter(rdv => rdv.statut === 'confirmé').length;
+            document.getElementById('totalRendezVous').textContent = rendezVous.length;
+            document.getElementById('statRendezVous').textContent = rdvConfirmes;
+
+            // Disponibilités
+            const disponibilites = JSON.parse(localStorage.getItem('disponibilites') || '[]');
+            document.getElementById('statDisponibilites').textContent = disponibilites.length || 12;
+
+            // Afficher les derniers rendez-vous
+            displayRecentAppointments(rendezVous);
+        }
+
+        // Afficher les derniers rendez-vous
+        function displayRecentAppointments(rendezVous) {
+            const container = document.getElementById('recentAppointments');
+            
+            if (rendezVous.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-gray-500 py-8">
+                        <i class="fas fa-calendar-times text-4xl mb-2 text-gray-300"></i>
+                        <p>Aucun rendez-vous pour le moment</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Trier par date (les plus récents en premier) et prendre les 5 derniers
+            const recent = rendezVous
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 5);
+
+            container.innerHTML = recent.map(rdv => {
+                const statusColors = {
+                    'confirmé': 'bg-green-100 text-green-800',
+                    'en attente': 'bg-yellow-100 text-yellow-800',
+                    'annulé': 'bg-red-100 text-red-800'
+                };
+
+                return `
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-100 rounded-full p-3">
+                                <i class="fas fa-user text-blue-600"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">${rdv.patientNom}</div>
+                                <div class="text-sm text-gray-500">Dr. ${rdv.medecinNom} - ${rdv.specialite}</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-medium text-gray-700">${rdv.date} à ${rdv.heure}</div>
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium ${statusColors[rdv.statut] || statusColors['en attente']}">
+                                ${rdv.statut}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Export des données
+        function exportData() {
+            const data = {
+                medecins: JSON.parse(localStorage.getItem('medecins') || '[]'),
+                specialites: JSON.parse(localStorage.getItem('specialites') || '[]'),
+                rendezVous: JSON.parse(localStorage.getItem('rendezVous') || '[]'),
+                disponibilites: JSON.parse(localStorage.getItem('disponibilites') || '[]')
+            };
+
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `medicare_export_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+
+            alert('Données exportées avec succès !');
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+            
+            // Animation des cartes
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
