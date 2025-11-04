@@ -5,45 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="medicare+ best medical plateform">
 <title>Rendez-vous - MediCare+</title>
-<!--
-  File: pages/rendez-vous.html
-  Purpose: Appointment booking page. Contains form handling and appointment list.
-  Note: Only documentation comments added here.
--->
 <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body class="transition-colors duration-500">
 
-<aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
-            <nav class="p-4 space-y-2">
-                <a href="acceuil.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
-                    <i class="fas fa-home text-lg"></i>
-                    <span class="font-medium">Accueil</span>
-                </a>
-                
-                <a href="med.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
-                    <i class="fas fa-user-md text-lg"></i>
-                    <span>Médecins</span>
-                </a>
-                
-                <a href="rendez-vous.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
-                    <i class="fas fa-calendar-check text-lg"></i>
-                    <span>Rendez-vous</span>
-                </a>
-                
-                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
-                    <i class="fas fa-clock text-lg"></i>
-                    <span>Disponibilités</span>
-                </a>
-                
-                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
-                    <i class="fas fa-heart text-lg"></i>
-                    <span>Spécialités</span>
-                </a>
-              
-            </nav>
-</aside>
+<nav id="navbar" class="bg-white shadow-sm transition-colors duration-500 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">MédiCare+</div>
+    <div class="hidden md:flex space-x-8">
+      <a href="acceuil.html" class="text-gray-600 hover:text-blue-600 transition-colors">Accueil</a>
+      <a href="med.html" class="text-gray-600 hover:text-blue-600 transition-colors">Médecins</a>
+      <a href="rendez-vous.html" class="text-blue-600 font-semibold">Rendez-vous</a>
+      <a href="suivi.html" class="text-gray-600 hover:text-blue-600 transition-colors">Suivi Santé</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div id="toggleDark" class="w-16 h-8 bg-gradient-to-r from-yellow-300 to-blue-500 rounded-full relative cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
+        <div id="toggleThumb" class="w-7 h-7 bg-white rounded-full absolute top-0.5 left-0.5 flex items-center justify-center text-sm transition-transform duration-300 shadow-md">☀️</div>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-blue-600 text-2xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2">
+    <a href="acceuil.html" class="block text-gray-600 hover:text-blue-600 py-2">Accueil</a>
+    <a href="med.html" class="block text-gray-600 hover:text-blue-600 py-2">Médecins</a>
+    <a href="rendez-vous.html" class="block text-blue-600 font-semibold py-2">Rendez-vous</a>
+    <a href="suivi.html" class="block text-gray-600 hover:text-blue-600 py-2">Suivi Santé</a>
+  </div>
+</nav>
+
 <div class="max-w-7xl mx-auto px-6 py-12 space-y-12">
 
   <div id="heroSection" class="rounded-3xl shadow-2xl overflow-hidden transition-all duration-500 p-12 text-center" style="background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);">
@@ -75,13 +65,13 @@
         </div>
 
         <div>
-          <label for="appointmentDate" class="block text-blue-900 font-semibold mb-2">Date et Heure *</label>
-          <input type="datetime-local" id="appointmentDate" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
+          <label class="block text-blue-900 font-semibold mb-2">Date et Heure *</label>
+          <input type="datetime-local" id="date" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
           <div id="dateError" class="error-message hidden">La date est obligatoire et doit être future</div>
         </div>
 
         <div>
-          <label for="doctor" class="block text-blue-900 font-semibold mb-2">Médecin *</label>
+          <label class="block text-blue-900 font-semibold mb-2">Médecin *</label>
           <select id="doctor" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
             <option value="">Choisir un médecin...</option>
             <option value="Dr. Sarah Alami - Cardiologie">Dr. Sarah Alami - Cardiologie</option>
