@@ -1,10 +1,3 @@
-/*
-  File: asstets/js/suivi.js
-  Purpose: Track health measures (weight, pressure, glucose), render history
-  and compute aggregate stats. Uses localStorage key 'healthMeasures'.
-  Note: Only comments were added at the top; behavior unchanged.
-*/
-
 let darkMode = false;
 let measures = JSON.parse(localStorage.getItem('healthMeasures')) || [];
 
