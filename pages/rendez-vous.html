@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="medicare+ best medical plateform">
 <title>Rendez-vous - MediCare+</title>
+<!--
+  File: pages/rendez-vous.html
+  Purpose: Appointment booking page. Contains form handling and appointment list.
+  Note: Only documentation comments added here.
+-->
 <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -70,13 +75,13 @@
         </div>
 
         <div>
-          <label class="block text-blue-900 font-semibold mb-2">Date et Heure *</label>
-          <input type="datetime-local" id="date" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
+          <label for="appointmentDate" class="block text-blue-900 font-semibold mb-2">Date et Heure *</label>
+          <input type="datetime-local" id="appointmentDate" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
           <div id="dateError" class="error-message hidden">La date est obligatoire et doit être future</div>
         </div>
 
         <div>
-          <label class="block text-blue-900 font-semibold mb-2">Médecin *</label>
+          <label for="doctor" class="block text-blue-900 font-semibold mb-2">Médecin *</label>
           <select id="doctor" class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
             <option value="">Choisir un médecin...</option>
             <option value="Dr. Sarah Alami - Cardiologie">Dr. Sarah Alami - Cardiologie</option>
