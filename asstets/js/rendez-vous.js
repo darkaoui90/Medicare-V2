@@ -1,11 +1,3 @@
-/*
-  File: asstets/js/rendez-vous.js
-  Purpose: Handle appointment form, validation, storage (localStorage) and rendering
-  of appointments. Key functions: validateField, renderAppointments, deleteAppointment
-  Data: appointments array stored in localStorage as 'appointments'.
-  Note: Only non-functional comments were added.
-*/
-
 let darkMode = false;
 let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
 let editingId = null;
