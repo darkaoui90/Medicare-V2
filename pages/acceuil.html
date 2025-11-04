@@ -7,33 +7,76 @@
 <title>Medicare+</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
+        <div class="flex items-center justify-between px-6 py-3">
+            <div class="flex items-center space-x-4">
+                <button id="menuToggle" class="lg:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-heartbeat text-2xl"></i>
+                    <span class="text-xl font-bold">MédiCare+</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
+                </div>
+                
+                <button class="relative">
+                    <i class="fas fa-bell text-xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                </button>
+                
+                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                
+                <div class="flex items-center space-x-3">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
+                         alt="Avatar" class="w-10 h-10 rounded-full">
+                    <div class="hidden md:block">
+                        <div class="font-semibold">Administrateur</div>
+                        <div class="text-xs opacity-80">Secrétaire</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 <body class="transition-colors duration-500">
 
-<nav id="navbar" class="bg-white shadow-sm transition-colors duration-500 sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">MédiCare+</div>
-    <div class="hidden md:flex space-x-8">
-        <a href="acceuil.html" class="text-blue-600 font-semibold">Accueil</a>
-      <a href="med.html" class="text-gray-600 hover:text-blue-600 transition-colors">Médecins</a>
-    
-      <a href="rendez-vous.html" class="text-gray-600 hover:text-blue-600 transition-colors">Rendez-vous</a>
-      <a href="suivi.html" class="text-gray-600 hover:text-blue-600 transition-colors">Suivi Santé</a>
-    </div>
-    <div class="flex items-center space-x-4">
-      <div id="toggleDark" class="w-16 h-8 bg-gradient-to-r from-yellow-300 to-blue-500 rounded-full relative cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
-        <div id="toggleThumb" class="w-7 h-7 bg-white rounded-full absolute top-0.5 left-0.5 flex items-center justify-center text-sm transition-transform duration-300 shadow-md">☀️</div>
-      </div>
-      <button id="mobileMenuBtn" class="md:hidden text-blue-600 text-2xl">☰</button>
-    </div>
-  </div>
-  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2">
-    <a href="acceuil.html" class="block text-blue-600 font-semibold py-2">Accueil</a>
-    <a href="med.html" class="block text-gray-600 hover:text-blue-600 py-2">Médecins</a>
-    <a href="rendez-vous.html" class="block text-gray-600 hover:text-blue-600 py-2">Rendez-vous</a>
-    <a href="suivi.html" class="block text-gray-600 hover:text-blue-600 py-2">Suivi Santé</a>
-  </div>
-</nav>
-
+<aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
+            <nav class="p-4 space-y-2">
+                <a href="acceuil.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-home text-lg"></i>
+                    <span class="font-medium">Accueil</span>
+                </a>
+                
+                <a href="med.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-user-md text-lg"></i>
+                    <span>Médecins</span>
+                </a>
+                
+                <a href="rendez-vous.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-calendar-check text-lg"></i>
+                    <span>Rendez-vous</span>
+                </a>
+                
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-clock text-lg"></i>
+                    <span>Disponibilités</span>
+                </a>
+                
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                    <i class="fas fa-heart text-lg"></i>
+                    <span>Spécialités</span>
+                </a>
+                
+            
+            </nav>
+</aside>
 <div class="max-w-6xl mx-auto p-6 space-y-8">
 
 <div id="carousel" class="rounded-xl shadow-lg overflow-hidden transition-colors transition-opacity duration-500 bg-blue-200 p-8 text-center opacity-100">
