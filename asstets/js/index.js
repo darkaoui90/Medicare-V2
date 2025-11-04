@@ -1,4 +1,3 @@
-
 const healthTips = [
   { id: 1, title: 'Hydratation', content: "Buvez 8 verres d'eau par jour.", icon: '💧' },
   { id: 2, title: 'Activité Physique', content: "30 minutes d'exercice modéré.", icon: '🏃' },

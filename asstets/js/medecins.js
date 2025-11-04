@@ -1,3 +1,11 @@
+/*
+  File: asstets/js/medecins.js
+  Purpose: Manage doctors data and UI rendering for the doctors page.
+  Main operations: renderDoctors, toggleFavorite, updateColors.
+  Data shape: doctors: {id, name, specialty, photo, available, experience, rating}
+  Note: Only comments were added; code behavior remains unchanged.
+*/
+
 const doctors = [
   { id: 1, name: 'Dr. Sarah Alami', specialty: 'cardiologie', photo: '👩‍⚕️', available: true, experience: '15 ans', rating: 4.8 },
   { id: 2, name: 'Dr. Ahmed Benali', specialty: 'dermatologie', photo: '👨‍⚕️', available: true, experience: '10 ans', rating: 4.6 },
