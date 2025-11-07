@@ -7,6 +7,145 @@
 <title>Médecins - MediCare+</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
+<style>
+
+          /* ======================================== */
+   
+        #formations {
+            padding: 0rem 3rem;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-header .tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .formations-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .formation-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .formation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .formation-card .image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .formation-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .formation-card:hover .image img {
+            transform: scale(1.1);
+        }
+
+        .formation-card .content {
+            padding: 2rem;
+        }
+
+        .formation-card .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .formation-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        .formation-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2563EB;
+            margin-bottom: 1rem;
+        }
+
+        .formation-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-card .learn-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .formation-card .learn-more:hover {
+            gap: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+        .formations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+        #formations {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+</style>
+
 </head>
 <body class="transition-colors duration-500">
 
@@ -58,12 +197,82 @@
       <h2 class="text-3xl font-bold text-blue-900">Liste des Médecins</h2>
       <p id="resultCount" class="mt-2 text-blue-700 text-lg"></p>
     </div>
-    <button id="showFavorites" class="px-6 py-3 rounded-full bg-gradient-to-r from-red-100 to-pink-100 text-red-600 hover:from-red-200 hover:to-pink-200 transition-all duration-300 shadow-lg font-medium flex items-center gap-2">
+    <!-- <button id="showFavorites" class="px-6 py-3 rounded-full bg-gradient-to-r from-red-100 to-pink-100 text-red-600 hover:from-red-200 hover:to-pink-200 transition-all duration-300 shadow-lg font-medium flex items-center gap-2">
       ❤️ Mes Favoris <span id="favoriteCount" class="bg-red-500 text-white rounded-full px-3 py-1 text-sm">0</span>
-    </button>
+    </button> -->
   </div>
 
   <div id="doctorsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+
+
+         <section id="formations">
+        <!-- <div class="section-header">
+            <h2>Des témoignages d'étudiants</h2>
+        </div> -->
+        <div class="formations-grid">
+            <div class="formation-card">
+                <div class="image">
+                    <img src="../devweb.jpg" alt="Lorem">
+                </div>
+                <div class="content">
+                    <h3>AYOUB EL AYOUK</h3>
+                    <h4>DEntist dovotoe</h4>
+                    <p>Mon parcours à YouCodedevweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
+                </div>
+            </div>
+            <div class="formation-card">
+                <div class="image">
+                    <img src="../devweb.jpg" alt="Dolor">
+                </div>
+                <div class="content">
+                    <h3>KHALAF ACHCHAIMAE</h3>
+                    <h4>DEntist dovotoe</h4>
+                    <p>Le système éducatif.devweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
+                </div>
+            </div>
+
+            <div class="formation-card">
+                <div class="image">
+                    <img src="../devweb.jpg" alt="Lorem">
+                </div>
+                <div class="content">
+                    <h3>NUHAILA HUSNI</h3>
+                    <h4>DEntist dovotoe</h4>
+                    <p>Depuis mon enfance.devweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
+                </div>
+            </div>
+            <div class="formation-card">
+                <div class="image">
+                    <img src="../devweb.jpg" alt="Ipsum">
+                </div>
+                <div class="content">
+                    <h3>FATIHA SAHT</h3>
+                    <h4>DEntist dovotoe</h4>
+                    <p>La femme qui suit la devweb.jpgdevweb.jpgdevweb.jpg.</p>
+                </div>
+            </div>
+            <div class="formation-card">
+                <div class="image">
+                    <img src="../devweb.jpg" alt="Dolor">
+                </div>
+                <div class="content">
+                    <h3>ABDELILAH MESKI</h3>
+                    <h4>DEntist dovotoe</h4>
+                    <p>Youcode est un bon choixdevweb.jpgdevweb.jpgdevweb.jpg.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
 
 </div>
 
