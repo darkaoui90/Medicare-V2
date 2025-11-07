@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MédiCare+ - Dashboard Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .sidebar-item {
             transition: all 0.3s ease;
         }
-        
+
         .sidebar-item:hover {
             background: rgba(59, 130, 246, 0.1);
             transform: translateX(5px);
         }
-        
+
         .sidebar-item.active {
             background: #dbeafe;
             color: #2563eb;
             font-weight: 600;
         }
-        
+
         .stat-card {
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-banner {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             position: relative;
@@ -44,12 +46,16 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
-    <!-- Header -->
     <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
+
+        <!-- navbar -->
         <div class="flex items-center justify-between px-6 py-3">
+
+            <!-- logo -->
             <div class="flex items-center space-x-4">
-                <button id="menuToggle" class="lg:hidden text-white">
+                <button id="menuToggle" class="lg:hidden text-white" title="Menu" aria-label="Menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
                 <div class="flex items-center space-x-2">
@@ -57,22 +63,26 @@
                     <span class="text-xl font-bold">MédiCare+</span>
                 </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
+
+                <!-- search bar -->
                 <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
                     <i class="fas fa-search text-gray-400"></i>
                     <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
                 </div>
-                
-                
-                
-                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
-                    <i class="fas fa-moon text-lg"></i>
+
+                <!-- dark mode -->
+                <button title="Basculer le thème" aria-label="Basculer le thème"
+                    class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+                    <i class="fas fa-moon text-lg" aria-hidden="true"></i>
+                    <span class="sr-only">Basculer le thème</span>
                 </button>
-                
+
+                <!-- profile -->
                 <div class="flex items-center space-x-3">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
-                         alt="Avatar" class="w-10 h-10 rounded-full">
+                    <img src="data:image/svg+xml,svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>"
+                        alt="Avatar" class="w-10 h-10 rounded-full">
                     <div class="hidden md:block">
                         <div class="font-semibold">Administrateur</div>
                         <div class="text-xs opacity-80">Secrétaire</div>
@@ -82,43 +92,96 @@
         </div>
     </header>
 
+    <!-- main content -->
+
     <div class="flex pt-16">
-      <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
+        <!-- sidebar -->
+
+        <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
+
+            <!-- navigation -->
             <nav class="p-4 space-y-2">
                 <a href="dashboard.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
                     <i class="fas fa-home text-lg"></i>
                     <span class="font-medium">Accueil</span>
                 </a>
-                
-                <a href="medecin.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="medecin.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-user-md text-lg"></i>
                     <span>Médecins</span>
                 </a>
-                
-                <a href="rendez_vous.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="rendez_vous.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-calendar-check text-lg"></i>
                     <span>Rendez-vous</span>
                 </a>
-                
-                <a href="disponibilite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="disponibilite.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-clock text-lg"></i>
                     <span>Disponibilités</span>
                 </a>
-                
-                <a href="specialite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="specialite.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
                 </a>
 
-    </a>
-  </div>
-
-                
+                </a>
             </nav>
-            
-          
         </aside>
-<body>
-    
+
+        <!-- page content -->
+        <div class="flex-1 ml-64 p-6">
+            <h1 class="text-3xl font-bold mb-6">Rendez-vous</h1>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold">gestion des rendez_vous</h3>
+                    <div class="flex items-center">
+                        <label for="statusFilter" class="sr-only">Filtrer par statut</label>
+                        <select id="statusFilter"
+                            class="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">Tous les statuts</option>
+                            <option value="confirmed">Confirmés</option>
+                            <option value="pending">En attente</option>
+                            <option value="canceled">Annulés</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full table-auto border-collapse border border-gray-200">
+                        <thead class="bg-gray-100 border-b-2 border-gray-400">
+                            <tr class="text-left">
+                                <th class="px-4 py-2">Patient</th>
+                                <th class="px-4 py-2">Email</th>
+                                <th class="px-4 py-2">Téléphone</th>
+                                <th class="px-4 py-2">Médecin</th>
+                                <th class="px-4 py-2">Date</th>
+                                <th class="px-4 py-2">Statut</th>
+                                <th class="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointmentsTableBody">
+                            <!-- Les rendez-vous seront insérés ici dynamiquement -->
+                        </tbody>
+
+                    </table>
+
+                    <p id="table-footer" class="mt-4 text-red-600 text-center">Aucun rendez-vous trouvé.</p>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-white border-t mt-12 py-6 text-center shadow-inner">
+        <p class="text-blue-800">© 2025 MédiCare+. Tous droits réservés.</p>
+    </footer>
+    <script src="../script/rendez_vous.js"></script>
+
+
 </body>
+
 </html>
