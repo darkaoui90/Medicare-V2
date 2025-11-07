@@ -1,91 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MédiCare+ - Dashboard Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .sidebar-item {
-            transition: all 0.3s ease;
-        }
-        
-        .sidebar-item:hover {
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateX(5px);
-        }
-        
-        .sidebar-item.active {
-            background: #dbeafe;
-            color: #2563eb;
-            font-weight: 600;
-        }
-        
-        .stat-card {
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero-banner {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            position: relative;
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
-        <div class="flex items-center justify-between px-6 py-3">
-            <div class="flex items-center space-x-4">
-                <button id="menuToggle" class="lg:hidden text-white">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-heartbeat text-2xl"></i>
-                    <span class="text-xl font-bold">MédiCare+</span>
-                </div>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
-                    <i class="fas fa-search text-gray-400"></i>
-                    <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
-                </div>
-                
-                
-                
-                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
-                    <i class="fas fa-moon text-lg"></i>
-                </button>
-                
-                <div class="flex items-center space-x-3">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
-                         alt="Avatar" class="w-10 h-10 rounded-full">
-                    <div class="hidden md:block">
-                        <div class="font-semibold">Administrateur</div>
-                        <div class="text-xs opacity-80">Secrétaire</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MédiCare+ - Dashboard Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    * {
+      font-family: 'Inter', sans-serif;
+    }
 
-    <div class="flex pt-16">
-      <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
+    .sidebar-item {
+      transition: all 0.3s ease;
+    }
+    .sidebar-item:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateX(5px);
+    }
+    .sidebar-item.active {
+      background: #dbeafe;
+      color: #2563eb;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-3">
+      <div class="flex items-center space-x-4">
+        <button id="menuToggle" class="lg:hidden text-white">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-heartbeat text-2xl"></i>
+          <span class="text-xl font-bold">MédiCare+</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
+          <i class="fas fa-search text-gray-400"></i>
+          <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
+        </div>
+        <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+          <i class="fas fa-moon text-lg"></i>
+        </button>
+        <div class="flex items-center space-x-3">
+          <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>"
+            alt="Avatar" class="w-10 h-10 rounded-full">
+          <div class="hidden md:block">
+            <div class="font-semibold">Administrateur</div>
+            <div class="text-xs opacity-80">Secrétaire</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex pt-16">
+     <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
             <nav class="p-4 space-y-2">
-                <a href="dashboard.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
+                <a href="dashboard.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-home text-lg"></i>
                     <span class="font-medium">Accueil</span>
                 </a>
@@ -100,7 +79,7 @@
                     <span>Rendez-vous</span>
                 </a>
                 
-                <a href="disponibilite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+                <a href="disponibilite.html"  class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
                     <i class="fas fa-clock text-lg"></i>
                     <span>Disponibilités</span>
                 </a>
@@ -109,6 +88,12 @@
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
                 </a>
+                <div class="p-4 border-t">
+    <a href="authentification.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
+      <i class="fas fa-sign-out-alt text-lg"></i>
+      <span>Déconnexion</span>
+    </a>
+  </div>
 
     </a>
   </div>
@@ -118,7 +103,69 @@
             
           
         </aside>
-<body>
+
+    <main class="flex-1 lg:ml-64 p-8 mt-4">
+      <div class="container mx-auto bg-white rounded-2xl shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-gray-600 text-center mb-6">📅 Gestion des Disponibilités</h1>
+        <div class="mb-6">
+          <label class="block text-gray-700 font-semibold mb-2">Sélectionner un médecin :</label>
+          <select id="selectMedecinDispo" onchange="afficherFormulaire()" class="w-full border-2 border-gray-200 rounded-lg px-4 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+            <option value="">-- Choisir un médecin --</option>
+            <option value="1">Dr. Alami Hassan - Cardiologue</option>
+            <option value="2">Dr. Benali Sara - Pédiatre</option>
+            <option value="3">Dr. El Idrissi Mohammed - Généraliste</option>
+            <option value="4">Dr. Tazi Fatima - Dermatologue</option>
+            <option value="5">Dr. Mernissi Ahmed - Orthopédiste</option>
+          </select>
+        </div>
+
+        <div id="formulaireDispo" style="display: none;">
+          <h3 class="text-lg font-semibold text-blue-600 mb-2">Jours de travail</h3>
+          <p class="text-gray-500 mb-4">Cochez les jours où ce médecin est disponible :</p>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+            <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" value="Lundi" checked class="mr-2 accent-blue-500">
+              <span>Lundi</span>
+            </label>
+            <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" value="Mardi" checked class="mr-2 accent-blue-500">
+              <span>Mardi</span>
+            </label>
+            <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" value="Mercredi" checked class="mr-2 accent-blue-500">
+              <span>Mercredi</span>
+            </label>
+            <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" value="Jeudi" checked class="mr-2 accent-blue-500">
+              <span>Jeudi</span>
+            </label>
+            <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+              <input type="checkbox" value="Vendredi" checked class="mr-2 accent-blue-500">
+              <span>Vendredi</span>
+            </label>
+           
+           
+          </div>
+
+          <button onclick="sauvegarderDisponibilites()" class="w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg shadow hover:scale-105 transition">
+            Sauvegarder les disponibilités
+          </button>
+
+          <div id="messageContainer" class="mt-4"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function afficherFormulaire() {
+      const select = document.getElementById('selectMedecinDispo');
+      const formulaire = document.getElementById('formulaireDispo');
+      formulaire.style.display = select.value ? 'block' : 'none';
+    }
+
     
+  </script>
 </body>
 </html>

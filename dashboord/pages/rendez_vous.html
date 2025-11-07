@@ -95,15 +95,11 @@
     <!-- main content -->
 
     <div class="flex pt-16">
-        <!-- sidebar -->
-
-        <aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
-
-            <!-- navigation -->
+<aside id="sidebar" class="w-64 bg-white h-screen shadow-lg fixed left-0 lg:block hidden overflow-y-auto">
             <nav class="p-4 space-y-2">
-                <a href="dashboard.html" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
+                <a href="dashboard.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-home text-lg"></i>
-                    <span class="font-medium">Accueil</span>
+                    <span>Accueil</span>
                 </a>
 
                 <a href="medecin.html"
@@ -115,7 +111,7 @@
                 <a href="rendez_vous.html"
                     class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-calendar-check text-lg"></i>
-                    <span>Rendez-vous</span>
+                    <span class="font-medium">Rendez-vous</span>
                 </a>
 
                 <a href="disponibilite.html"
@@ -129,6 +125,12 @@
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
                 </a>
+                <div class="p-4 border-t">
+    <a href="authentification.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
+      <i class="fas fa-sign-out-alt text-lg"></i>
+      <span>Déconnexion</span>
+    </a>
+  </div>
 
                 </a>
             </nav>
