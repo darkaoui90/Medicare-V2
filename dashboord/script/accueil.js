@@ -4,7 +4,8 @@ if (localStorage.getItem("isLoggedIn") !== "true") {
 }
 
 function loadStats() {
-    const totalMedecins = localStorage.getItem("medecins") || 0;
+    const showDoctors = JSON.parse(localStorage.getItem("showDoctors")) || [];
+    const totalMedecins = showDoctors.length;
     
     const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
     const totalRendezVous = appointments.length;
