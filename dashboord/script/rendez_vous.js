@@ -6,7 +6,7 @@ console.log('statusFilter:', statusFilter);
 
 
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
     appointments = storedAppointments;
     appointments.forEach(appointment => renderAppointment(appointment));
@@ -99,3 +99,14 @@ function updateAppointmentCount() {
     const refusedCount = appointments.filter(app => app.status === 'refused').length;
     const pendingCount = appointments.filter(app => app.status === 'pending').length;
 }
+
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("authentification.html");
+}
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.setItem("isLoggedIn", "false");
+    window.location.replace("authentification.html");
+});
