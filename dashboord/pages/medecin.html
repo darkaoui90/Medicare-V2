@@ -9,43 +9,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .sidebar-item {
             transition: all 0.3s ease;
         }
-        
+
         .sidebar-item:hover {
             background: rgba(59, 130, 246, 0.1);
             transform: translateX(5px);
         }
-        
+
         .sidebar-item.active {
             background: #dbeafe;
             color: #2563eb;
             font-weight: 600;
         }
-        
+
         .stat-card {
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-banner {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             position: relative;
             overflow: hidden;
         }
-    </style>
-
-    <style>
         :root {
   --main-color: #2563EB;
   --bg-color: #f8f8f8;
@@ -165,18 +162,25 @@ button:hover {
 }
 
     </style>
+
+  
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
     <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
-        <div class="flex items-center justify-between px-6 py-3">
+        <div class="flex items-center justify-between px-16 py-1.5">
             <div class="flex items-center space-x-4">
                 <button id="menuToggle" class="lg:hidden text-white">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
-                <div class="flex items-center space-x-2">
+                
+                <div class="flex justify-start items-center space-x-2">
                     <i class="fas fa-heartbeat text-2xl"></i>
                     <span class="text-xl font-bold">MédiCare+</span>
+                </div>
+<div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
+                    <i class="fas fa-search text-gray-400"></i>
+                    <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
                 </div>
             </div>
             
@@ -230,8 +234,7 @@ button:hover {
                 <a href="specialite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
-                </a>
-
+                </a>       
                 <div class="p-4 border-t">
                     <a href="authentification.html" id="logout"
                         class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
