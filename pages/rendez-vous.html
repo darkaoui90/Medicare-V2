@@ -94,9 +94,48 @@
 
           <!-- date field -->
           <div>
-            <label for="date" class="block text-blue-900 font-semibold mb-2">Date et Heure *</label>
-            <input type="date" id="date" title="Date du rendez-vous" placeholder="YYYY-MM-DD"
-              class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
+            <label class="block text-blue-900 font-semibold mb-2">Jour *</label>
+            <div id="dayField" class="flex flex-wrap gap-3">
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="radio" name="day" value="lundi" class="sr-only peer" required>
+                <span
+                  class="px-4 py-2 rounded-xl border-2 border-blue-100 bg-white text-blue-700 font-medium transition-all peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">
+                  Lundi
+                </span>
+              </label>
+
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="radio" name="day" value="mardi" class="sr-only peer">
+                <span
+                  class="px-4 py-2 rounded-xl border-2 border-blue-100 bg-white text-blue-700 font-medium transition-all peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">
+                  Mardi
+                </span>
+              </label>
+
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="radio" name="day" value="mercredi" class="sr-only peer">
+                <span
+                  class="px-4 py-2 rounded-xl border-2 border-blue-100 bg-white text-blue-700 font-medium transition-all peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">
+                  Mercredi
+                </span>
+              </label>
+
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="radio" name="day" value="jeudi" class="sr-only peer">
+                <span
+                  class="px-4 py-2 rounded-xl border-2 border-blue-100 bg-white text-blue-700 font-medium transition-all peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">
+                  Jeudi
+                </span>
+              </label>
+
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="radio" name="day" value="vendredi" class="sr-only peer">
+                <span 
+                  class="px-4 py-2 rounded-xl border-2 border-blue-100 bg-white text-blue-700 font-medium transition-all peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600">
+                  Vendredi
+                </span>
+              </label>
+            </div>
           </div>
 
           <!-- doctor field -->
@@ -105,11 +144,7 @@
             <select id="doctor"
               class="form-input w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
               <option value="">Choisir un médecin...</option>
-              <option value="Dr. Sarah Alami - Cardiologie">Dr. Sarah Alami - Cardiologie</option>
-              <option value="Dr. Ahmed Benali - Dermatologie">Dr. Ahmed Benali - Dermatologie</option>
-              <option value="Dr. Fatima Idrissi - Pédiatrie">Dr. Fatima Idrissi - Pédiatrie</option>
-              <option value="Dr. Karim Tazi - Cardiologie">Dr. Karim Tazi - Cardiologie</option>
-              <option value="Dr. Nadia Bennis - Orthopédie">Dr. Nadia Bennis - Orthopédie</option>
+              <!-- dinamique options -->
             </select>
           </div>
 

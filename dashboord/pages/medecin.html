@@ -185,10 +185,10 @@ button:hover {
             </div>
             
             <div class="flex items-center space-x-4">
-                <!-- <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
+                <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
                     <i class="fas fa-search text-gray-400"></i>
                     <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
-                </div> -->
+                </div>
                 
                 
                 
@@ -236,55 +236,19 @@ button:hover {
                     <span>Spécialités</span>
                 </a>       
                 <div class="p-4 border-t">
-    <a id="logout" href="authentification.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
-      <i class="fas fa-sign-out-alt text-lg"></i>
-      <span>Déconnexion</span>
-    </a>
+                    <a href="authentification.html" id="logout"
+                        class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
+                        <i class="fas fa-sign-out-alt text-lg"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </div>
+
             </nav>
         </aside>
     </div>
 <body>
     
      <section id="registeter">
-    <!-- <div class="main_section">
-      <div class="headline">
-        <h1>Ajouter un médecin: </h1>
-        <p>Remplissez les champs ci-dessous pour ajouter un médecin :</p>
-      </div>
-      <div class="registeter_section">
-         <form onsubmit="event.preventDefault(); alert('Merci pour votre message! Nous vous répondrons très bientôt!');">
-          <div class="writing_sec">
-          <div>
-            <label for="nom">Nom complet :</label>
-            <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
-          </div>
-
-          <div>
-            <label for="genre">Spécialité :</label>
-            <select id="genre" name="genre" required>
-              <option value="">-- Sélectionnez --</option>
-              <option value="homme">Dentist</option>
-              <option value="femme">Psycholog</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="image">Image :</label>
-            <input type="file"  style="padding: 2px 8px;" pattern="^0[5-7][0-9]{8}$" required>
-          </div>
-
-
-          <div>
-            <label for="questions">Description :</label>
-            <textarea id="questions" name="questions" rows="3" placeholder="Posez vos questions ici..."></textarea>
-          </div>
-          </div>
-          <button type="submit">S'inscrire</button>
-        </form>
-      </div>
-    </div> -->
-  
-  
   
   
     <!-- 🧾 Formulaire pour ajouter un médecin -->
@@ -294,9 +258,7 @@ button:hover {
       <input type="text" id="name" placeholder="Nom complet" required><br>
       <select id="speciality" required>
         <option value="">Choisir la spécialité</option>
-        <option>Cardiologie</option>
-        <option>Dermatologie</option>
-        <option>Neurologie</option>
+        <!-- <option>Cardiologie</option> -->
       </select><br>
       <input type="file" id="image" accept="image/*"><br>
       <textarea id="description" placeholder="Description" required></textarea><br>
@@ -307,186 +269,8 @@ button:hover {
   </section>
 
 
-
-
-
-
-
-
-  <!-- <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #f8f9fb;
-      margin: 0;
-      padding: 40px 20px;
-    }
-
-    .container {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 15px;
-      color: #333;
-      font-weight: 600;
-      font-size: 18px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th {
-      text-align: left;
-      font-size: 14px;
-      color: #777;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #eee;
-    }
-
-    td {
-      padding: 12px 0;
-      border-bottom: 1px solid #f1f1f1;
-      vertical-align: middle;
-    }
-
-    .doctor-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .doctor-info img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .doctor-name {
-      font-weight: 600;
-      color: #333;
-      font-size: 15px;
-    }
-
-    .speciality {
-      color: #777;
-      font-size: 13px;
-    }
-
-    .desc {
-      font-size: 14px;
-      color: #555;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: white;
-    }
-
-    .low { background: #b5e7b0; color: #256029; }
-    .medium { background: #d1dcf6; color: #1a237e; }
-    .high { background: #f6c9c9; color: #b71c1c; }
-
-    /* 🌐 Responsive design */
-    @media (max-width: 700px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        margin-bottom: 20px;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      }
-
-      td {
-        border: none;
-        padding: 8px 0;
-      }
-
-      td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #555;
-        display: block;
-        margin-bottom: 5px;
-        font-size: 13px;
-      }
-    }
-  </style> -->
-
-
-
   <div class="container">
-    <h2>Notre Médecins: </h2>
-    <!-- <table>
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Speciality</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Name">
-            <div class="doctor-info">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor">
-              <div>
-                <div class="doctor-name">Dr. Adam Smith</div>
-              </div>
-            </div>
-          </td>
-          <td data-label="Speciality">Heart Specialist</td>
-          <td data-label="Description" class="desc">Expert in treating heart diseases and managing blood pressure.</td>
-        </tr>
-
-        <tr>
-          <td data-label="Name">
-            <div class="doctor-info">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Doctor">
-              <div>
-                <div class="doctor-name">Dr. Celine Aluista</div>
-              </div>
-            </div>
-          </td>
-          <td data-label="Speciality">Skin Care</td>
-          <td data-label="Description" class="desc">Specializes in skin treatment, acne, and laser procedures.</td>
-        </tr>
-
-        <tr>
-          <td data-label="Name">
-            <div class="doctor-info">
-              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Doctor">
-              <div>
-                <div class="doctor-name">Dr. Malachi Ardo</div>
-              </div>
-            </div>
-          </td>
-          <td data-label="Speciality">Brain & Nerves</td>
-          <td data-label="Description" class="desc">Focuses on nervous system disorders and chronic headaches.</td>
-        </tr>
-
-      </tbody>
-    </table> -->
-  
+    <h2>Nos Médecins: </h2>
   
     <!-- 📋 Tableau d'affichage des médecins -->
   <table>
