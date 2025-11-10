@@ -210,9 +210,9 @@
         <!-- <div class="section-header">
             <h2>Des témoignages d'étudiants</h2>
         </div> -->
-        <div class="formations-grid">
-            <div class="formation-card">
-                <div class="image">
+        <div class="formations-grid" id="doctorList">
+            <!-- <div class="formation-card" >
+               <div class="image">
                     <img src="../devweb.jpg" alt="Lorem">
                 </div>
                 <div class="content">
@@ -220,48 +220,8 @@
                     <h4>DEntist dovotoe</h4>
                     <p>Mon parcours à YouCodedevweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
                 </div>
-            </div>
-            <div class="formation-card">
-                <div class="image">
-                    <img src="../devweb.jpg" alt="Dolor">
-                </div>
-                <div class="content">
-                    <h3>KHALAF ACHCHAIMAE</h3>
-                    <h4>DEntist dovotoe</h4>
-                    <p>Le système éducatif.devweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
-                </div>
-            </div>
+            </div> -->
 
-            <div class="formation-card">
-                <div class="image">
-                    <img src="../devweb.jpg" alt="Lorem">
-                </div>
-                <div class="content">
-                    <h3>NUHAILA HUSNI</h3>
-                    <h4>DEntist dovotoe</h4>
-                    <p>Depuis mon enfance.devweb.jpgdevweb.jpgdevweb.jpgdevweb.jpg</p>
-                </div>
-            </div>
-            <div class="formation-card">
-                <div class="image">
-                    <img src="../devweb.jpg" alt="Ipsum">
-                </div>
-                <div class="content">
-                    <h3>FATIHA SAHT</h3>
-                    <h4>DEntist dovotoe</h4>
-                    <p>La femme qui suit la devweb.jpgdevweb.jpgdevweb.jpg.</p>
-                </div>
-            </div>
-            <div class="formation-card">
-                <div class="image">
-                    <img src="../devweb.jpg" alt="Dolor">
-                </div>
-                <div class="content">
-                    <h3>ABDELILAH MESKI</h3>
-                    <h4>DEntist dovotoe</h4>
-                    <p>Youcode est un bon choixdevweb.jpgdevweb.jpgdevweb.jpg.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -280,7 +240,29 @@
   <p class="text-blue-800">© 2025 MediCare+. Tous droits réservés.</p>
 </footer>
 
-<script src="../asstets/js/medecins.js"></script>
+
+
+
+                 <script>
+    const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+    const container = document.getElementById("doctorList");
+
+    doctors.forEach(d => {
+      const card = document.createElement("div");
+      card.className = "formation-card";
+      card.innerHTML = `
+        <div class="image">
+          <img src="${d.image}" alt="${d.name}">
+        </div>
+        <div class="content">
+          <h3>${d.name}</h3>
+          <h4>${d.speciality}</h4>
+          <p>${d.description}</p>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
