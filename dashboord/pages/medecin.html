@@ -231,6 +231,15 @@ button:hover {
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
                 </a>
+
+                <div class="p-4 border-t">
+                    <a href="authentification.html" id="logout"
+                        class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
+                        <i class="fas fa-sign-out-alt text-lg"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </div>
+
             </nav>
         </aside>
     </div>
@@ -246,9 +255,7 @@ button:hover {
       <input type="text" id="name" placeholder="Nom complet" required><br>
       <select id="speciality" required>
         <option value="">Choisir la spécialité</option>
-        <option>Cardiologie</option>
-        <option>Dermatologie</option>
-        <option>Neurologie</option>
+        <!-- <option>Cardiologie</option> -->
       </select><br>
       <input type="file" id="image" accept="image/*"><br>
       <textarea id="description" placeholder="Description" required></textarea><br>
