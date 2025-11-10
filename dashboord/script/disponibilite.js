@@ -1,7 +1,6 @@
-if (localStorage.getItem("isLoggedIn") !== "true") {
+if (localStorage.getItem("isLoggedIn") !== "true") {   
     window.location.replace("authentification.html");
 }
-
 const logout = document.getElementById("logout");
 
 logout.addEventListener("click", function(e) {
