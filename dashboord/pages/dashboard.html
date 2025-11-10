@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <title>MédiCare+ - Dashboard Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .sidebar-item {
             transition: all 0.3s ease;
         }
-        
+
         .sidebar-item:hover {
             background: rgba(59, 130, 246, 0.1);
             transform: translateX(5px);
         }
-        
+
         .sidebar-item.active {
             background: #dbeafe;
             color: #2563eb;
             font-weight: 600;
         }
-        
+
         .stat-card {
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-banner {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             position: relative;
@@ -48,6 +49,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
         <div class="flex items-center justify-between px-6 py-3">
@@ -60,22 +62,23 @@
                     <span class="text-xl font-bold">MédiCare+</span>
                 </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
                 <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
                     <i class="fas fa-search text-gray-400"></i>
                     <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
                 </div>
-                
-                
-                
-                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+
+
+
+                <button
+                    class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
                     <i class="fas fa-moon text-lg"></i>
                 </button>
-                
+
                 <div class="flex items-center space-x-3">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
-                         alt="Avatar" class="w-10 h-10 rounded-full">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>"
+                        alt="Avatar" class="w-10 h-10 rounded-full">
                     <div class="hidden md:block">
                         <div class="font-semibold">Administrateur</div>
                         <div class="text-xs opacity-80">Secrétaire</div>
@@ -92,131 +95,138 @@
                     <i class="fas fa-home text-lg"></i>
                     <span class="font-medium">Accueil</span>
                 </a>
-                
-                <a href="medecin.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="medecin.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-user-md text-lg"></i>
                     <span>Médecins</span>
                 </a>
-                
-                <a href="rendez_vous.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="rendez_vous.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-calendar-check text-lg"></i>
                     <span>Rendez-vous</span>
                 </a>
-                
-                <a href="disponibilite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="disponibilite.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-clock text-lg"></i>
                     <span>Disponibilités</span>
                 </a>
-                
-                <a href="specialite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
+
+                <a href="specialite.html"
+                    class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
                 </a>
                 <div class="p-4 border-t">
-    <a id="logout" href="authentification.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
-      <i class="fas fa-sign-out-alt text-lg"></i>
-      <span>Déconnexion</span>
-    </a>
-  </div>
+                    <a id="logout" href="authentification.html"
+                        class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
+                        <i class="fas fa-sign-out-alt text-lg"></i>
+                        <span>Déconnexion</span>
+                    </a>
+                </div>
 
-    </a>
-  </div>
+                </a>
+    </div>
 
-                
-            </nav>
-            
-          
-        </aside>
 
-        <main class="flex-1 lg:ml-64 p-6">
-            <div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-                <i class="fas fa-home"></i>
-                <span>Accueil</span>
-                <i class="fas fa-chevron-right text-xs"></i>
-                <span class="text-blue-600 font-medium">Dashboard</span>
+    </nav>
+
+
+    </aside>
+
+    <main class="flex-1 lg:ml-64 p-6">
+        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-6">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+            <i class="fas fa-chevron-right text-xs"></i>
+            <span class="text-blue-600 font-medium">Dashboard</span>
+        </div>
+        <div class=" items-center justify-center  text-center mb-6">
+            <div class="hero-title space-y-2 mb-8 ">
+                <h1 class="text-4xl font-bold text-gray-800">
+                    Bienvenue sur le Dashboard Admin
+                </h1>
+                <p class="text-gray-700 opacity-90">
+                    Gérez les médecins, rendez-vous, disponibilités et spécialités facilement.
+                </p>
             </div>
-            <div class=" items-center justify-center  text-center mb-6">
-  <div class="hero-title space-y-2 mb-8 ">
-    <h1 class="text-4xl font-bold text-gray-800">
-      Bienvenue sur le Dashboard Admin
-    </h1>
-    <p class="text-gray-700 opacity-90">
-      Gérez les médecins, rendez-vous, disponibilités et spécialités facilement.
-    </p>
-  </div>
-</div>
-            
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="bg-blue-100 rounded-full p-3">
-                            <i class="fas fa-user-md text-blue-600 text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statMedecins">8</div>
-                    <div class="text-gray-500 text-sm mb-3">Nos Medecins :</div>
-                    <a href="medecin.html" class="text-blue-600 text-sm font-medium flex items-center">
-                        Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
 
-                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="bg-green-100 rounded-full p-3">
-                            <i class="fas fa-calendar-check text-green-600 text-xl"></i>
-                        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-blue-100 rounded-full p-3">
+                        <i class="fas fa-user-md text-blue-600 text-xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statRendezVous">0</div>
-                    <div class="text-gray-500 text-sm mb-3">Rendez-vous Confirmés</div>
-                    <a href="rendez_vous.html" class="text-green-600 text-sm font-medium flex items-center">
-                        Voir tout <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                    </a>
                 </div>
-
-                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="bg-orange-100 rounded-full p-3">
-                            <i class="fas fa-heart text-orange-600 text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statSpecialites">5</div>
-                    <div class="text-gray-500 text-sm mb-3">Spécialités actives  : </div>
-                    <a href="specialite.html" class="text-orange-600 text-sm font-medium flex items-center">
-                        Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-
-                <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="bg-purple-100 rounded-full p-3">
-                            <i class="fas fa-clock text-purple-600 text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="text-3xl font-bold text-gray-800 mb-1" id="statDisponibilites">12</div>
-                    <div class="text-gray-500 text-sm mb-3">les medecins disponibiles :</div>
-                    <a href="disponibilite.html" class="text-purple-600 text-sm font-medium flex items-center">
-                        Configurer <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
+                <div class="text-3xl font-bold text-gray-800 mb-1" id="statMedecins">8</div>
+                <div class="text-gray-500 text-sm mb-3">Nos Medecins :</div>
+                <a href="medecin.html" class="text-blue-600 text-sm font-medium flex items-center">
+                    Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
             </div>
 
-
-            <div class="bg-white rounded-xl p-6 shadow-md">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-bold text-gray-800">Derniers Rendez-vous</h2>
-                    <a href="#" class="text-blue-600 text-sm font-medium">Voir tout →</a>
-                </div>
-                <div id="recentAppointments" class="space-y-3">
-                    <div class="text-center text-gray-500 py-8">
-                        <i class="fas fa-calendar-times text-4xl mb-2 text-gray-300"></i>
-                        <p>Aucun rendez-vous pour le moment</p>
+            <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-green-100 rounded-full p-3">
+                        <i class="fas fa-calendar-check text-green-600 text-xl"></i>
                     </div>
                 </div>
+                <div class="text-3xl font-bold text-gray-800 mb-1" id="statRendezVous">0</div>
+                <div class="text-gray-500 text-sm mb-3">Rendez-vous Confirmés</div>
+                <a href="rendez_vous.html" class="text-green-600 text-sm font-medium flex items-center">
+                    Voir tout <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
             </div>
-        </main>
+
+            <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-orange-100 rounded-full p-3">
+                        <i class="fas fa-heart text-orange-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-gray-800 mb-1" id="statSpecialites">5</div>
+                <div class="text-gray-500 text-sm mb-3">Spécialités actives : </div>
+                <a href="specialite.html" class="text-orange-600 text-sm font-medium flex items-center">
+                    Gérer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl p-6 shadow-md cursor-pointer">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="bg-purple-100 rounded-full p-3">
+                        <i class="fas fa-clock text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-gray-800 mb-1" id="statDisponibilites">12</div>
+                <div class="text-gray-500 text-sm mb-3">les medecins disponibiles :</div>
+                <a href="disponibilite.html" class="text-purple-600 text-sm font-medium flex items-center">
+                    Configurer <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-gray-800">Derniers Rendez-vous</h2>
+                <a href="rendez_vous.html" class="text-blue-600 text-sm font-medium">Voir tout →</a>
+            </div>
+            <div id="recentAppointments" class="space-y-3">
+                <div class="text-center text-gray-500 py-8">
+                    <i class="fas fa-calendar-times text-4xl mb-2 text-gray-300"></i>
+                    <p>Aucun rendez-vous pour le moment</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
     </div>
     <script src="../script/accueil.js"></script>
-    
+
 </body>
+
 </html>
