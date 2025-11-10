@@ -4,18 +4,31 @@ const tableFooter = document.getElementById('table-footer');
 const statusFilter = document.getElementById('filterStatus');
 console.log('statusFilter:', statusFilter);
 
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.setItem("isLoggedIn", "false");
+    window.location.replace("authentification.html");
+});
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-    appointments = storedAppointments;
-    appointments.forEach(appointment => renderAppointment(appointment));
-    updateAppointmentCount();
-    console.log('Loaded appointments:', appointments);
-    if (appointments.length === 0) {
-        tableFooter.textContent = 'Aucun rendez-vous trouvé.';
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.replace("authentification.html");
     } else {
-        tableFooter.textContent = '';
+        console.log("User is logged in.");
+        const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+        appointments = storedAppointments;
+        appointments.forEach(appointment => renderAppointment(appointment));
+        updateAppointmentCount();
+        console.log('Loaded appointments:', appointments);
+        if (appointments.length === 0) {
+            tableFooter.textContent = 'Aucun rendez-vous trouvé.';
+        } else {
+            tableFooter.textContent = '';
+        }
     }
 });
 
@@ -99,14 +112,3 @@ function updateAppointmentCount() {
     const refusedCount = appointments.filter(app => app.status === 'refused').length;
     const pendingCount = appointments.filter(app => app.status === 'pending').length;
 }
-
-if (localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.replace("authentification.html");
-}
-const logout = document.getElementById("logout");
-
-logout.addEventListener("click", function (e) {
-    e.preventDefault();
-    localStorage.setItem("isLoggedIn", "false");
-    window.location.replace("authentification.html");
-});
