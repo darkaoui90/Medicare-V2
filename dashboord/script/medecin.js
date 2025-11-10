@@ -1,4 +1,6 @@
-
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("authentification.html");
+}
     const form = document.getElementById("form");
     const tableBody = document.getElementById("tableBody");
     let editIndex = null;
@@ -95,3 +97,10 @@
 
     
     window.onload = showDoctors; // without this doctors do not show in first, u need to add some doctor 3ad ibano
+    const logout = document.getElementById("logout");
+
+logout.addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.setItem("isLoggedIn", "false");
+    window.location.replace("authentification.html");
+});
