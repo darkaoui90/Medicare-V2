@@ -4,6 +4,11 @@ const tableBody = document.getElementById("specialiteTableBody");
 let array = [];
 let rowBeingEdited = null;
 
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("authentification.html");
+}
+
+
 //local storage part
 // Load saved data when the page loads
 window.addEventListener("load", () => {
@@ -84,9 +89,6 @@ function addRow(name) {
 }
 
 //local storage part youness 
-if (localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.replace("authentification.html");
-}
 
 const logout = document.getElementById("logout");
 

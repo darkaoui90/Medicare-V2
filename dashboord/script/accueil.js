@@ -4,14 +4,15 @@ if (localStorage.getItem("isLoggedIn") !== "true") {
 }
 
 function loadStats() {
-    const showDoctors = JSON.parse(localStorage.getItem("showDoctors")) || [];
+    const showDoctors = JSON.parse(localStorage.getItem("doctors")) || [];
     const totalMedecins = showDoctors.length;
     
     const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
     const totalRendezVous = appointments.length;
 
-    const totalSpecialites = localStorage.getItem("specialites") || 0;
-    const totalDisponibilites = localStorage.getItem("disponibilites") || 0;
+    const specialites = JSON.parse(localStorage.getItem("specialite")) || [];
+    const totalSpecialites = specialites.length;
+    const disponibilites = JSON.parse(localStorage.getItem("disponibilites")) || [];
 
     document.getElementById("statMedecins").textContent = totalMedecins;
     document.getElementById("statRendezVous").textContent = totalRendezVous;
