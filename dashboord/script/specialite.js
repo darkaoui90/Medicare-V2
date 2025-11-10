@@ -1,37 +1,43 @@
- const form = document.getElementById('addForm');
+const form = document.getElementById("addForm");
 const nameInput = form.elements.specialite;
-const tableBody = document.getElementById('specialiteTableBody');
-
+const tableBody = document.getElementById("specialiteTableBody");
+let array = [];
 let rowBeingEdited = null;
 
-form.addEventListener('submit', function (event) {
+//local storage part
+// Load saved data when the page loads
+window.addEventListener("load", () => {
+  const storedData = JSON.parse(localStorage.getItem("specialite")) || [];
+  array = storedData;
+  array.forEach(name => addRow(name));
+});
+// 
+
+
+
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const name = nameInput.value.trim();
-  if (name === '') return;
+  if (name === "") return;
 
   if (rowBeingEdited) {
-    
-    rowBeingEdited.querySelector('.specialite-name').textContent = name;
+    rowBeingEdited.querySelector(".specialite-name").textContent = name;
     rowBeingEdited = null;
-    form.querySelector('button[type="submit"]').textContent = 'Submit';
+    form.querySelector('button[type="submit"]').textContent = "Submit";
   } else {
-    
     addRow(name);
+    array.push(name);
+localStorage.setItem("specialite", JSON.stringify(array));
   }
 
-  nameInput.value = '';
+  nameInput.value = "";
   nameInput.focus();
+
 });
 
- 
-
-
-
-
-
 function addRow(name) {
-  const row = document.createElement('tr');
+  const row = document.createElement("tr");
 
   row.innerHTML = `
     <td class="px-6 py-4 text-gray-900 specialite-name">${name}</td>
@@ -49,30 +55,43 @@ function addRow(name) {
         </button>
       </div>
     </td>
-    `
-  ;
+    `;
 
-  const editButton = row.querySelector('.btn-edit');
-  const deleteButton = row.querySelector('.btn-delete');
+  const editButton = row.querySelector(".btn-edit");
+  const deleteButton = row.querySelector(".btn-delete");
 
-  editButton.addEventListener('click', function () {
+  editButton.addEventListener("click", function () {
     rowBeingEdited = row;
-    nameInput.value = row.querySelector('.specialite-name').textContent;
-    form.querySelector('button[type="submit"]').textContent = 'Update';
+    nameInput.value = row.querySelector(".specialite-name").textContent;
+    form.querySelector('button[type="submit"]').textContent = "Update";
     nameInput.focus();
   });
 
-  deleteButton.addEventListener('click', function () {
-    if (rowBeingEdited === row) {
-      rowBeingEdited = null;
-      form.querySelector('button[type="submit"]').textContent = 'delete';
-      nameInput.value = '';
-    }
-    row.remove();
-  });
+  deleteButton.addEventListener("click", function () {
+  if (rowBeingEdited === row) {
+    rowBeingEdited = null;
+    form.querySelector('button[type="submit"]').textContent = "Submit";
+    nameInput.value = "";
+  }
+  const name = row.querySelector(".specialite-name").textContent;
+  
+  array = array.filter(item => item !== name);
+  localStorage.setItem("specialite", JSON.stringify(array));
+  row.remove();
+});
 
   tableBody.appendChild(row);
 }
 
+//local storage part youness 
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.replace("authentification.html");
+}
 
+const logout = document.getElementById("logout");
 
+logout.addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.setItem("isLoggedIn", "false");
+    window.location.replace("authentification.html");
+});
