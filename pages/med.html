@@ -197,9 +197,6 @@
       <h2 class="text-3xl font-bold text-blue-900">Liste des Médecins</h2>
       <p id="resultCount" class="mt-2 text-blue-700 text-lg"></p>
     </div>
-    <!-- <button id="showFavorites" class="px-6 py-3 rounded-full bg-gradient-to-r from-red-100 to-pink-100 text-red-600 hover:from-red-200 hover:to-pink-200 transition-all duration-300 shadow-lg font-medium flex items-center gap-2">
-      ❤️ Mes Favoris <span id="favoriteCount" class="bg-red-500 text-white rounded-full px-3 py-1 text-sm">0</span>
-    </button> -->
   </div>
 
   <div id="doctorsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
@@ -207,9 +204,6 @@
 
 
          <section id="formations">
-        <!-- <div class="section-header">
-            <h2>Des témoignages d'étudiants</h2>
-        </div> -->
         <div class="formations-grid" id="doctorList">
             <!-- <div class="formation-card" >
                <div class="image">
@@ -241,28 +235,6 @@
 </footer>
 
 
-
-
-                 <script>
-    const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
-    const container = document.getElementById("doctorList");
-
-    doctors.forEach(d => {
-      const card = document.createElement("div");
-      card.className = "formation-card";
-      card.innerHTML = `
-        <div class="image">
-          <img src="${d.image}" alt="${d.name}">
-        </div>
-        <div class="content">
-          <h3>${d.name}</h3>
-          <h4>${d.speciality}</h4>
-          <p>${d.description}</p>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>
-
+<script src="../asstets/js/medecins.js"></script>
 </body>
 </html>
