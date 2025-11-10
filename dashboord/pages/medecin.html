@@ -236,7 +236,7 @@ button:hover {
 <body>
     
      <section id="registeter">
-    <div class="main_section">
+    <!-- <div class="main_section">
       <div class="headline">
         <h1>Ajouter un médecin: </h1>
         <p>Remplissez les champs ci-dessous pour ajouter un médecin :</p>
@@ -272,7 +272,28 @@ button:hover {
           <button type="submit">S'inscrire</button>
         </form>
       </div>
-    </div>
+    </div> -->
+  
+  
+  
+  
+    <!-- 🧾 Formulaire pour ajouter un médecin -->
+  <div class="box">
+    <h3>Ajouter un médecin</h3>
+    <form id="form">
+      <input type="text" id="name" placeholder="Nom complet" required><br>
+      <select id="speciality" required>
+        <option value="">Choisir la spécialité</option>
+        <option>Cardiologie</option>
+        <option>Dermatologie</option>
+        <option>Neurologie</option>
+      </select><br>
+      <input type="file" id="image" accept="image/*"><br>
+      <textarea id="description" placeholder="Description" required></textarea><br>
+      <button type="submit" class="add">Enregistrer</button>
+    </form>
+  </div>
+  
   </section>
 
 
@@ -282,7 +303,7 @@ button:hover {
 
 
 
-  <style>
+  <!-- <style>
     body {
       font-family: "Poppins", sans-serif;
       background: #f8f9fb;
@@ -399,13 +420,13 @@ button:hover {
         font-size: 13px;
       }
     }
-  </style>
+  </style> -->
 
 
 
   <div class="container">
     <h2>Notre Médecins: </h2>
-    <table>
+    <!-- <table>
       <thead>
         <tr>
           <th>Nom</th>
@@ -454,8 +475,84 @@ button:hover {
         </tr>
 
       </tbody>
-    </table>
+    </table> -->
+  
+  
+    <!-- 📋 Tableau d'affichage des médecins -->
+  <table>
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Nom</th>
+        <th>Spécialité</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+  
+  
+
+
+
+   <style>
+    /* 🎨 Style simple de la page */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, select, textarea {
+      width: 90%;
+      margin: 5px 0;
+      padding: 8px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .add { background-color: #007bff; }
+    .delete { background-color: #dc3545; }
+    .edit { background-color: #ffc107; }
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    table {
+      margin: 20px 20%;
+      width: 80%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+  
   </div>
 
+<script src="../script/medecin.js"></script>
 </body>
 </html>
