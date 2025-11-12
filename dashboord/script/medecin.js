@@ -71,7 +71,16 @@ form.addEventListener("submit", (e) => {
 
   //save docs even new or modified
   function saveDoctor(imageData) {
-    const doctor = { name, speciality, description, image: imageData };
+    const doctor = { 
+      name, 
+      speciality, 
+      specialty: speciality, // Add both for compatibility
+      description, 
+      image: imageData,
+      photo: '👨‍⚕️', // Default emoji
+      available: true, // Default to available
+      id: editIndex !== null ? doctors[editIndex].id : Date.now()
+    };
 
     if (editIndex !== null) {
       doctors[editIndex] = doctor; // Modification
