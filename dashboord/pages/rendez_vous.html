@@ -143,9 +143,21 @@
             <h1 class="text-3xl font-bold mb-6">Rendez-vous</h1>
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="mb-4 flex items-center justify-between">
-                    <h3 class="text-lg font-semibold">gestion des rendez_vous</h3>
+                    <h3 class="text-lg font-semibold">Gestion des rendez_vous</h3>
                 </div>
-                <div class="overflow-x-auto">
+                
+                    
+                    <div class="mb-4 flex items-center justify-end space-x-4">
+                        <button id="exportCSV"
+        class="px-4 py-2 bg-blue-600 text-white">
+        <i class="fas fa-file-export mr-2"></i> Exporter en CSV
+    </button>
+    <button id ="exportPDF"
+        class ="px-4 py-2 bg-orange-600 text-white ">
+       <i class="fas fa-file-export mr-2"></i> exporter PDF
+    </button>
+    
+</div>
                     <table class="min-w-full table-auto border-collapse border border-gray-200">
                         <thead class="bg-gray-100 border-b-2 border-gray-400">
                             <tr class="text-left">
@@ -173,6 +185,9 @@
     <footer class="bg-white border-t mt-12 py-6 text-center shadow-inner">
         <p class="text-blue-800">© 2025 MédiCare+. Tous droits réservés.</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- jsPDF AutoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script src="../script/rendez_vous.js"></script>
 
 
