@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -110,22 +110,18 @@
 
     <main class="flex-1 lg:ml-64 p-8 mt-4">
       <div class="container mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h1 class="text-3xl font-bold text-gray-600 text-center mb-6">📅 Gestion des Disponibilités</h1>
+        <h1 class="text-3xl font-bold text-gray-600 text-center mb-6"> Gestion des Disponibilites</h1>
         <div class="mb-6">
-          <label class="block text-gray-700 font-semibold mb-2">Sélectionner un médecin :</label>
+          <label class="block text-gray-700 font-semibold mb-2">Selectionner un medecin :</label>
           <select id="selectMedecinDispo" onchange="afficherFormulaire()" class="w-full border-2 border-gray-200 rounded-lg px-4 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
-            <option value="">-- Choisir un médecin --</option>
-            <option value="1">Dr. Alami Hassan - Cardiologue</option>
-            <option value="2">Dr. Benali Sara - Pédiatre</option>
-            <option value="3">Dr. El Idrissi Mohammed - Généraliste</option>
-            <option value="4">Dr. Tazi Fatima - Dermatologue</option>
-            <option value="5">Dr. Mernissi Ahmed - Orthopédiste</option>
+            <option value="">-- Choisir un medecin --</option>
           </select>
+          <p class="text-sm text-gray-500 mt-2">Pour ajouter un medecin, rendez-vous sur la page <a href="medecin.html" class="text-blue-600 underline">Medecins</a>.</p>
         </div>
 
         <div id="formulaireDispo" style="display: none;">
           <h3 class="text-lg font-semibold text-blue-600 mb-2">Jours de travail</h3>
-          <p class="text-gray-500 mb-4">Cochez les jours où ce médecin est disponible :</p>
+          <p class="text-gray-500 mb-4">Cochez les jours  ce medecin est disponible :</p>
 
           <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
             <label class="flex items-center p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -153,7 +149,7 @@
           </div>
 
           <button onclick="sauvegarderDisponibilites()" class="w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-lg shadow hover:scale-105 transition">
-            Sauvegarder les disponibilités
+            Sauvegarder les disponibilites
           </button>
 
           <div id="messageContainer" class="mt-4"></div>
@@ -171,3 +167,6 @@
  
 </body> 
 </html>
+
+
+
