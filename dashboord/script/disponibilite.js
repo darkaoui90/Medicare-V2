@@ -2,18 +2,16 @@ if (localStorage.getItem("isLoggedIn") !== "true") {
     window.location.replace("authentification.html");
 }
 
-function afficherFormulaire() {
-      const select = document.getElementById('selectMedecinDispo');
-      const formulaire = document.getElementById('formulaireDispo');
-      
-      if (select.value) {
-        formulaire.style.display = 'block';
-      } else {
-        formulaire.style.display = 'none';
-      }
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  chargerMedecinsDisponibilite();
+  afficherFormulaire();
+});
 
-
+window.addEventListener("storage", (event) => {
+  if (event.key === "doctors") {
+    chargerMedecinsDisponibilite();
+  }
+});
 
 const logout = document.getElementById("logout");
 
@@ -24,6 +22,43 @@ logout.addEventListener("click", function(e) {
 });
 // disponibilite javascript 
 
+function chargerMedecinsDisponibilite() {
+  const select = document.getElementById("selectMedecinDispo");
+  if (!select) return;
+
+  const currentValue = select.value;
+  const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+
+  select.innerHTML = '<option value="">-- Choisir un medecin --</option>';
+
+  if (!doctors.length) {
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.disabled = true;
+    emptyOption.textContent = "Ajoutez un medecin depuis l'onglet Medecins";
+    select.appendChild(emptyOption);
+    select.value = "";
+    afficherFormulaire();
+    return;
+  }
+
+  doctors.forEach((doctor) => {
+    const option = document.createElement("option");
+    option.value = doctor.name;
+    option.textContent = doctor.speciality
+      ? `${doctor.name} - ${doctor.speciality}`
+      : doctor.name;
+    select.appendChild(option);
+  });
+
+  if (currentValue && doctors.some((doctor) => doctor.name === currentValue)) {
+    select.value = currentValue;
+  } else {
+    select.value = "";
+  }
+
+  afficherFormulaire();
+}
 
 function afficherFormulaire() {
   const select = document.getElementById("selectMedecinDispo");
