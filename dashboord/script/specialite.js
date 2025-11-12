@@ -73,17 +73,29 @@ function addRow(name) {
   });
 
   deleteButton.addEventListener("click", function () {
-  if (rowBeingEdited === row) {
-    rowBeingEdited = null;
-    form.querySelector('button[type="submit"]').textContent = "Submit";
-    nameInput.value = "";
-  }
-  const name = row.querySelector(".specialite-name").textContent;
-  
-  array = array.filter(item => item !== name);
-  localStorage.setItem("specialite", JSON.stringify(array));
-  row.remove();
-});
+    const name = row.querySelector(".specialite-name").textContent;
+    const wantDelete = confirm("Do you really want to delete this specialite?");
+    if (!wantDelete) {
+      return;
+    }
+
+    const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+    const hasDoctor = doctors.some(doc => doc.speciality === name);
+    if (hasDoctor) {
+      alert("You can't delete this specialite because a doctor is using it.");
+      return;
+    }
+
+    if (rowBeingEdited === row) {
+      rowBeingEdited = null;
+      form.querySelector('button[type="submit"]').textContent = "Submit";
+      nameInput.value = "";
+    }
+
+    array = array.filter(item => item !== name);
+    localStorage.setItem("specialite", JSON.stringify(array));
+    row.remove();
+  });
 
   tableBody.appendChild(row);
 }
