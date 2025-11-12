@@ -9,43 +9,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
         .sidebar-item {
             transition: all 0.3s ease;
         }
-        
+
         .sidebar-item:hover {
             background: rgba(59, 130, 246, 0.1);
             transform: translateX(5px);
         }
-        
+
         .sidebar-item.active {
             background: #dbeafe;
             color: #2563eb;
             font-weight: 600;
         }
-        
+
         .stat-card {
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-banner {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             position: relative;
             overflow: hidden;
         }
-    </style>
-
-    <style>
         :root {
   --main-color: #2563EB;
   --bg-color: #f8f8f8;
@@ -109,7 +106,7 @@ label {
   
 }
 
-input, select, textarea {
+.input, select, textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
@@ -119,13 +116,13 @@ input, select, textarea {
   
 }
 
-input:focus, select:focus, textarea:focus {
+.input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--main-color);
   box-shadow: 0 0 0 3px rgba(155,0,20,0.2);
 }
 
-button {
+.button {
   background: var(--main-color);
   color: #fff;
   border: none;
@@ -137,7 +134,7 @@ button {
   width: 40%;
 }
 
-button:hover {
+.button:hover {
   background: var(--main-color);
   transform: translateY(-5px);
   box-shadow: 0 0 0 3px rgba(155,0,20,0.2);
@@ -165,13 +162,19 @@ button:hover {
 }
 
     </style>
+
+  
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
     <header class="bg-blue-600 text-white shadow-lg fixed w-full top-0 z-50">
+
+        <!-- navbar -->
         <div class="flex items-center justify-between px-6 py-3">
+
+            <!-- logo -->
             <div class="flex items-center space-x-4">
-                <button id="menuToggle" class="lg:hidden text-white">
+                <button id="menuToggle" class="lg:hidden text-white" title="Menu" aria-label="Menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
                 <div class="flex items-center space-x-2">
@@ -179,22 +182,26 @@ button:hover {
                     <span class="text-xl font-bold">MédiCare+</span>
                 </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
+
+                <!-- search bar -->
                 <div class="hidden md:flex items-center bg-white rounded-lg px-4 py-2 text-gray-700 w-96">
                     <i class="fas fa-search text-gray-400"></i>
                     <input type="text" placeholder="Rechercher..." class="ml-2 outline-none w-full bg-transparent">
                 </div>
-                
-                
-                
-                <button class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
-                    <i class="fas fa-moon text-lg"></i>
+
+                <!-- dark mode -->
+                <button title="Basculer le thème" aria-label="Basculer le thème"
+                    class="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-2 hover:bg-opacity-30 transition">
+                    <i class="fas fa-moon text-lg" aria-hidden="true"></i>
+                    <span class="sr-only">Basculer le thème</span>
                 </button>
-                
+
+                <!-- profile -->
                 <div class="flex items-center space-x-3">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e7ff'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%233b82f6' font-family='Arial'>AD</text></svg>" 
-                         alt="Avatar" class="w-10 h-10 rounded-full">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='50'%20cy='50'%20r='50'%20fill='%23e0e7ff'/%3E%3Ctext%20x='50'%20y='65'%20font-size='40'%20text-anchor='middle'%20fill='%233b82f6'%20font-family='Arial'%3EAD%3C/text%3E%3C/svg%3E"
+                        alt="Avatar" class="w-10 h-10 rounded-full">
                     <div class="hidden md:block">
                         <div class="font-semibold">Administrateur</div>
                         <div class="text-xs opacity-80">Secrétaire</div>
@@ -230,8 +237,7 @@ button:hover {
                 <a href="specialite.html" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600">
                     <i class="fas fa-heart text-lg"></i>
                     <span>Spécialités</span>
-                </a>
-
+                </a>       
                 <div class="p-4 border-t">
                     <a href="authentification.html" id="logout"
                         class="flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition">
@@ -243,23 +249,22 @@ button:hover {
             </nav>
         </aside>
     </div>
-<body>
     
      <section id="registeter">
   
   
-    <!-- 🧾 Formulaire pour ajouter un médecin -->
+
   <div class="box">
     <h3>Ajouter un médecin</h3>
     <form id="form">
-      <input type="text" id="name" placeholder="Nom complet" required><br>
+      <input type="text" id="name" class="input" placeholder="Nom complet" required><br>
       <select id="speciality" required>
         <option value="">Choisir la spécialité</option>
         <!-- <option>Cardiologie</option> -->
       </select><br>
-      <input type="file" id="image" accept="image/*"><br>
+      <input type="file" class="input" id="image" accept="image/*"><br>
       <textarea id="description" placeholder="Description" required></textarea><br>
-      <button type="submit" class="add">Enregistrer</button>
+      <button type="submit" class="add button">Enregistrer</button>
     </form>
   </div>
   
@@ -269,7 +274,8 @@ button:hover {
   <div class="container">
     <h2>Nos Médecins: </h2>
   
-    <!-- 📋 Tableau d'affichage des médecins -->
+
+
   <table>
     <thead>
       <tr>
@@ -288,7 +294,7 @@ button:hover {
 
 
    <style>
-    /* 🎨 Style simple de la page */
+    
     body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -304,13 +310,13 @@ button:hover {
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    input, select, textarea {
+    .input, select, textarea {
       width: 90%;
       margin: 5px 0;
       padding: 8px;
     }
 
-    button {
+    .button {
       margin: 5px;
       padding: 8px 12px;
       border: none;
@@ -320,8 +326,8 @@ button:hover {
     }
 
     .add { background-color: #007bff; }
-    .delete { background-color: #dc3545; }
-    .edit { background-color: #ffc107; }
+    .delete { background-color: #dc3545; color: white; border-radius: 5px; padding: 5px; }
+    .edit { background-color: #ffc107; color: white; border-radius: 5px; padding: 5px; }
 
     img {
       width: 50px;

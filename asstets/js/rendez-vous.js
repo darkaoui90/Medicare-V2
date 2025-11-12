@@ -1,3 +1,26 @@
+
+let array = [];
+
+const storedData = JSON.parse(localStorage.getItem("doctors")) || [];
+const container = document.getElementById("doctor");
+
+array = storedData;
+
+array.forEach(doctor => {
+  const option = document.createElement("option");
+  option.className = "option";
+  // option.textContent =`  ${doctor.name} ${doctor.speciality} ` ;
+  option.textContent = "-> " + doctor.name +" : \""+doctor.speciality + "\"" ;
+  container.appendChild(option);
+});
+
+
+
+
+
+
+
+
 const appointmentForm = document.getElementById('appointmentForm');
 const appointmentsList = document.getElementById('appointmentsList');
 const appointmentCount = document.getElementById('appointmentCount');

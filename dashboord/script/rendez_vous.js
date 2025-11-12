@@ -112,3 +112,62 @@ function updateAppointmentCount() {
     const refusedCount = appointments.filter(app => app.status === 'refused').length;
     const pendingCount = appointments.filter(app => app.status === 'pending').length;
 }
+document.getElementById("exportCSV").addEventListener("click", function () {
+    const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+    if (appointments.length === 0) {
+        alert("aucun rendez-vous trouvé");
+        return;
+    }
+    const headers =["Nom du patient", "email", "telephone", "Medecin", "date", "statut"];
+    const rows = appointments.map(a =>[
+        a.name,
+        a.email,
+        a.phone,
+        a.doctor,
+        a.date,
+        a.statut
+    ]);
+
+    let csvContent = headers.join(",") + "\n";
+    rows.forEach(row =>{
+        csvContent += row.map (field => `"${String(field).replace(/"/g, '""')}"`).join(",") +"\n";
+    });
+
+    const blob = new Blob([csvContent], { type : "text/csv;charset=utf-8;"});
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href",url);
+    link.setAttribute("download","rendez_vous.csv");
+    document.body.appendChild (link);
+    link.click();
+    document.body.removeChild(link);
+}); 
+document.getElementById("exportPDF").addEventListener("click", async function () {
+    const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+    if (appointments.length === 0) {
+        alert("aucun rendez-vous trouvé");
+        return;
+    }
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    const headers = [["Nom du patient", "email", "telephone", "Medecin", "date", "statut"]];
+    
+    const rows = appointments.map (a =>[
+        a.name,
+        a.email,
+        a.phone,
+        a.doctor,
+        a.date,
+        a.status
+    ]);
+    doc.autoTable({
+    startY: 25,
+    head: headers,
+    body: rows,
+    theme: "grid",
+    styles: { textColor: 0, fontSize: 10 },
+  });
+
+    doc.save ("rendez_vous.pdf");
+});
