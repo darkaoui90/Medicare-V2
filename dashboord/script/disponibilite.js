@@ -1,4 +1,4 @@
-if (localStorage.getItem("isLoggedIn") !== "true") {   
+if (localStorage.getItem("isLoggedIn") !== "true") {
     window.location.replace("authentification.html");
 }
 
@@ -20,7 +20,6 @@ logout.addEventListener("click", function(e) {
     localStorage.setItem("isLoggedIn", "false");
     window.location.replace("authentification.html");
 });
-// disponibilite javascript 
 
 function chargerMedecinsDisponibilite() {
   const select = document.getElementById("selectMedecinDispo");
@@ -68,8 +67,9 @@ function afficherFormulaire() {
   form.style.display = select.value ? "block" : "none";
 
   if (select.value) {
-    const saved = JSON.parse(localStorage.getItem("disponibilites") || "{}");
-    const jours = saved[select.value] || [];
+    const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+    const doctor = doctors.find((doc) => doc.name === select.value);
+    const jours = Array.isArray(doctor?.disponibilites) ? doctor.disponibilites : [];
     document.querySelectorAll("#formulaireDispo input[type='checkbox']").forEach(c => {
       c.checked = jours.includes(c.value);
     });
@@ -86,9 +86,13 @@ function sauvegarderDisponibilites() {
     if (c.checked) jours.push(c.value);
   });
 
-  const all = JSON.parse(localStorage.getItem("disponibilites") || "{}");
-  all[select.value] = jours;
-  localStorage.setItem("disponibilites", JSON.stringify(all));
+  const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+  const doctorIndex = doctors.findIndex((doc) => doc.name === select.value);
+  if (doctorIndex === -1) return;
 
-  msg.innerHTML = `<div class="p-3 mt-3 bg-green-100 text-green-700 rounded">✅ Disponibilités enregistrées !</div>`;
+  doctors[doctorIndex].disponibilites = jours;
+  localStorage.setItem("doctors", JSON.stringify(doctors));
+  localStorage.removeItem("disponibilites");
+  
+  msg.innerHTML = `<div class="p-3 mt-3 bg-green-100 text-green-700 rounded">Disponibilites enregistrees !</div>`;
 }

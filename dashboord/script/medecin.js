@@ -1,7 +1,6 @@
 
 
 
-
 // This part is for specialities 
 
 
@@ -24,8 +23,6 @@ array.forEach(name => {
 
 
 
-
-
 if (localStorage.getItem("isLoggedIn") !== "true") {
   window.location.replace("authentification.html");
 }
@@ -39,12 +36,17 @@ function showDoctors() {
   const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
 
   doctors.forEach((d, i) => {
+    const daysText = Array.isArray(d.disponibilites)
+      ? d.disponibilites.join(", ")
+      : (d.disponibilites || "");
     const row = `
           <tr>
             <td><img src="${d.image}" alt="" style="margin-left : 30%"></td>
             <td>${d.name}</td>
             <td>${d.speciality}</td>
             <td>${d.description}</td>
+            <td>${daysText}</td>
+
             <td>
               <button class="edit" onclick="editDoctor(${i})">Modifier</button>
               <button class="delete" onclick="deleteDoctor(${i})">Supprimer</button>
@@ -66,12 +68,17 @@ form.addEventListener("submit", (e) => {
   const speciality = document.getElementById("speciality").value;
   const description = document.getElementById("description").value;
   const imageFile = document.getElementById("image").files[0];
+  const disponibilitesInput = document.getElementById("disponibilites");
+  const disponibilitesValue = disponibilitesInput ? disponibilitesInput.value : "";
+  const disponibilites = disponibilitesValue
+    ? disponibilitesValue.split(",").map((day) => day.trim()).filter(Boolean)
+    : [];
 
   const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
 
   //save docs even new or modified
   function saveDoctor(imageData) {
-    const doctor = { name, speciality, description, image: imageData };
+    const doctor = { name, speciality, description, image: imageData , disponibilites};
 
     if (editIndex !== null) {
       doctors[editIndex] = doctor; // Modification
@@ -100,7 +107,6 @@ form.addEventListener("submit", (e) => {
 
 
 
-
 //modify
 function editDoctor(i) {
   const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
@@ -108,15 +114,21 @@ function editDoctor(i) {
   document.getElementById("name").value = d.name;
   document.getElementById("speciality").value = d.speciality;
   document.getElementById("description").value = d.description;
+  const dispoInput = document.getElementById("disponibilites");
+  if (dispoInput) {
+    dispoInput.value = Array.isArray(d.disponibilites)
+      ? d.disponibilites.join(", ")
+      : (d.disponibilites || "");
+  }
   editIndex = i;
-  alert("Modifiez les informations et aprés cliquez sur Enregistrer ✅");
+  alert("Modifiez les informations et apres cliquez sur Enregistrer");
 }
 
 
 //remove
 function deleteDoctor(i) {
   const doctors = JSON.parse(localStorage.getItem("doctors")) || [];
-  if (confirm("Voulez-vous vraiment supprimer ce médecin ?")) {
+  if (confirm("Voulez-vous vraiment supprimer ce medecin ?")) {
     doctors.splice(i, 1);
     localStorage.setItem("doctors", JSON.stringify(doctors));
     showDoctors();
