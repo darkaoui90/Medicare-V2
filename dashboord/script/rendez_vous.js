@@ -166,8 +166,9 @@ document.getElementById("exportPDF").addEventListener("click", async function ()
     head: headers,
     body: rows,
     theme: "grid",
-    styles: { textColor: 0, fontSize: 10 },
+    styles: {  fontSize: 10 },
   });
 
     doc.save ("rendez_vous.pdf");
 });
+
