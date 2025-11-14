@@ -5,7 +5,6 @@ const container = document.getElementById("doctor");
 
 array = storedData;
 
-// نعبّيو اللائحة الأولية ديال الأطباء
 // array.forEach(doctor => {
 //   const option = document.createElement("option");
 //   option.className = "option";
